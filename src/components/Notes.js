@@ -16,7 +16,14 @@ const Notes = () => {
     const dispatch = useDispatch()
 
     // component can access the notes stored in the store with the useSelector hook of the react redux library
-    const notes = useSelector(state => state)
+    const notes = useSelector(({ filter, notes }) => {
+        if (filter === 'ALL') {
+            return notes
+        }
+        return filter === 'IMPORTANT'
+            ? notes.filter(note => note.important)
+            : notes.filter(note => ! note.important)
+    })
 
     return(
         <ul>
