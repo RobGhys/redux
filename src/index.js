@@ -7,6 +7,7 @@ import noteReducer from './reducers/noteReducer'
 
 const store = createStore(noteReducer)
 
+// the App is a child of Provider component (from react redux)
 ReactDOM.render(
     <Provider store={store}>
         <App />

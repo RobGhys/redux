@@ -12,7 +12,10 @@ const Note = ({ note, handleClick }) => {
 }
 
 const Notes = () => {
+    // dispatch-function from the useDispatch -hook
     const dispatch = useDispatch()
+
+    // component can access the notes stored in the store with the useSelector hook of the react redux library
     const notes = useSelector(state => state)
 
     return(
