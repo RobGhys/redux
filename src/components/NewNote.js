@@ -6,14 +6,12 @@ const NewNote = () => {
     // dispatch-function from the useDispatch -hook
     const dispatch = useDispatch()
 
-    const addNote = (event) => {
+    const addNote = async (event) => {
         event.preventDefault()
 
         // get content of the new note from the form field
         const content = event.target.note.value
         event.target.note.value = ''
-
-        // Call the creator function
         dispatch(createNote(content))
     }
 
