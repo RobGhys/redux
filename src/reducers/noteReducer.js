@@ -6,8 +6,6 @@ const noteReducer = (state = [], action) => {
         case 'NEW_NOTE':
             // destructure state and add action.data to it
             return [...state, action.data]
-        case 'INIT_NOTE':
-            return action.data
         case 'TOGGLE_IMPORTANCE':
             const id = action.data.id
             // search for a specific note object
@@ -25,6 +23,8 @@ const noteReducer = (state = [], action) => {
             return state.map(note =>
                 note.id !== id ? note : changedNote
             )
+        case 'INIT_NOTES':
+            return action.data
         default:
             return state
     }
